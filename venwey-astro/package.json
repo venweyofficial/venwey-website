@@ -3,6 +3,9 @@
   "type": "module",
   "version": "0.3.0",
   "private": true,
+  "overrides": {
+    "vite": "6.1.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
