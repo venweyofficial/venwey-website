@@ -1,0 +1,36 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  current: "privacy" | "terms" | "disclaimer";
+}
+
+const { title, description, current } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} bodyClass="legal-document">
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="logo-link" href="index.html" aria-label="VENWEY home"><span class="logo-slot logo-slot--header"><img src="/assets/logo.png" alt="VENWEY" /></span></a>
+      <a class="nav-contact" href="index.html">Back to VENWEY</a>
+    </nav>
+  </header>
+  <main class="legal-main">
+    <article class="container legal-content">
+      <slot />
+    </article>
+  </main>
+  <footer class="footer legal-footer">
+    <div class="container footer-bottom">
+      <span>© 2026 VENWEY</span>
+      <nav class="footer-legal" aria-label="Legal information">
+        <a href="privacy-policy.html" aria-current={current === "privacy" ? "page" : undefined}>Privacy Policy</a>
+        <a href="terms.html" aria-current={current === "terms" ? "page" : undefined}>Terms &amp; Conditions</a>
+        <a href="disclaimer.html" aria-current={current === "disclaimer" ? "page" : undefined}>Disclaimer</a>
+      </nav>
+      <a href="index.html">Back to home</a>
+    </div>
+  </footer>
+</BaseLayout>

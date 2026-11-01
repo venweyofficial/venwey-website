@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Capabilities from "../components/Capabilities.astro";
+import Vision from "../components/Vision.astro";
+import Approach from "../components/Approach.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
+---
+
+<BaseLayout
+  title="Venwey"
+  description="VENWEY is an integrated growth ecosystem connecting brand strategy, technology, and market growth."
+>
+  <Header />
+  <main>
+    <Hero />
+    <About />
+    <Capabilities />
+    <Vision />
+    <Approach />
+    <Contact />
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+  <script>
+    import "../scripts/main.ts";
+  </script>
+</BaseLayout>
