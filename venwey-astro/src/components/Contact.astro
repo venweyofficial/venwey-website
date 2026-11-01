@@ -30,3 +30,39 @@
     </form>
   </div>
 </section>
+
+<dialog class="contact-dialog" id="contactDialog" aria-labelledby="contactDialogTitle">
+  <div class="contact-dialog-panel">
+    <button class="contact-dialog-close" type="button" aria-label="Close contact window" data-close-contact-dialog>
+      <span aria-hidden="true"></span>
+    </button>
+    <div class="contact-dialog-grid">
+      <div class="contact-copy">
+        <p class="eyebrow">Start something</p>
+        <h2 id="contactDialogTitle">Have an idea<br>worth <em>building?</em></h2>
+        <p>Tell us what you are working on. Let's find the right direction and the next practical step.</p>
+        <a class="contact-email" href="mailto:venweyofficial@gmail.com">venweyofficial@gmail.com</a>
+        <a class="contact-phone" href="tel:+919496011781">+91 9496011781</a>
+      </div>
+      <form class="contact-form" id="contactPopupForm">
+        <label for="popupName">Your name</label>
+        <input id="popupName" name="name" type="text" placeholder="Name" required>
+        <label for="popupEmail">Email address</label>
+        <input id="popupEmail" name="email" type="email" placeholder="you@example.com" required>
+        <label for="popupService">What can we help with?</label>
+        <select id="popupService" name="service">
+          <option value="Not sure yet">Choose a capability</option>
+          <option value="Brand">Brand</option>
+          <option value="Lab">Lab</option>
+          <option value="Grow">Grow</option>
+          <option value="General enquiry">General enquiry</option>
+        </select>
+        <label for="popupMessage">A little about your project</label>
+        <textarea id="popupMessage" name="message" rows="3" placeholder="Tell us about your idea..." required></textarea>
+        <button class="button button-gold" type="submit">Send enquiry</button>
+        <p class="form-note">Your email app will open with your enquiry ready to send. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</dialog>

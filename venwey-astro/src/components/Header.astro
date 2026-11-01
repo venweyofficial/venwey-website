@@ -1,18 +1,47 @@
----
+﻿---
 ---
 <header class="site-header" id="top">
   <nav class="nav container" aria-label="Main navigation">
-    <a class="logo-link" href="#top" aria-label="VENWEY home"><span class="logo-slot logo-slot--header"><img
-          src="/assets/logo.png" alt="" onerror="this.parentElement.classList.add('is-empty');this.remove()"><em
-          class="slot-label">Logo space<br><small>assets/logo.png</small></em></span></a>
+    <a class="logo-link" href="#top" aria-label="VENWEY home">
+      <span class="logo-slot logo-slot--header">
+        <img src="/assets/logo.png" alt="" onerror="this.parentElement.classList.add('is-empty');this.remove()">
+        <em class="slot-label">Logo space<br><small>assets/logo.png</small></em>
+      </span>
+    </a>
     <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <div class="nav-links" id="navLinks">
       <a href="#about">About</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#vision">Vision & Mission</a>
-      <a href="#contact" class="nav-contact">Let's talk <span>↗</span></a>
+      <details class="nav-dropdown">
+        <summary>Brand</summary>
+        <ul class="nav-dropdown-menu">
+          <li><a href="#brand-building" data-service="Brand">Brand Building</a></li>
+          <li><a href="#logo-brand-design" data-service="Brand">Logo &amp; Brand Design</a></li>
+          <li><a href="#graphic-digital-design" data-service="Brand">Graphic &amp; digital design</a></li>
+          <li><a href="#creative-direction" data-service="Brand">Creative direction</a></li>
+        </ul>
+      </details>
+      <details class="nav-dropdown">
+        <summary>Lab</summary>
+        <ul class="nav-dropdown-menu">
+          <li><a href="#web-app-development" data-service="Lab">Web &amp; app development</a></li>
+          <li><a href="#software-solutions" data-service="Lab">Software solutions</a></li>
+          <li><a href="#prototyping" data-service="Lab">Prototyping</a></li>
+          <li><a href="#technical-consulting" data-service="Lab">Technical consulting</a></li>
+        </ul>
+      </details>
+      <details class="nav-dropdown">
+        <summary>Grow</summary>
+        <ul class="nav-dropdown-menu">
+          <li><a href="#digital-marketing" data-service="Grow">Digital marketing</a></li>
+          <li><a href="#search-engine-optimisation" data-service="Grow">Search engine optimisation</a></li>
+          <li><a href="#content-strategy" data-service="Grow">Content strategy</a></li>
+          <li><a href="#growth-planning" data-service="Grow">Growth planning</a></li>
+        </ul>
+      </details>
+      <a href="#vision">Vision &amp; Mission</a>
+      <a href="#contact" class="nav-contact">Let's talk</a>
     </div>
   </nav>
 </header>

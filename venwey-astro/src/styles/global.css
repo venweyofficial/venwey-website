@@ -116,7 +116,20 @@ h2 span {
     background: rgba(255, 252, 245, .76);
     -webkit-backdrop-filter: blur(18px);
     backdrop-filter: blur(18px);
-    box-shadow: 0 8px 28px rgba(35, 31, 32, .035)
+    box-shadow: 0 8px 28px rgba(35, 31, 32, .035);
+    animation: navbar-slide-in .45s cubic-bezier(.2, .7, .2, 1) both
+}
+
+@keyframes navbar-slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(24px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0)
+    }
 }
 
 .nav {
@@ -124,6 +137,13 @@ h2 span {
     display: flex;
     align-items: center;
     justify-content: space-between
+}
+
+@media (min-width: 901px) {
+    .site-header > .nav.container {
+        width: 100%;
+        max-width: none
+    }
 }
 
 .nav-links {
@@ -140,6 +160,117 @@ h2 span {
 }
 
 .nav-links a:not(.nav-contact):hover {
+    color: var(--ink)
+}
+
+.nav-dropdown {
+    position: relative
+}
+
+.nav-dropdown > summary {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #5A524A;
+    cursor: pointer;
+    list-style: none;
+    transition: color .2s
+}
+
+.nav-dropdown > summary::-webkit-details-marker {
+    display: none
+}
+
+.nav-dropdown > summary::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    margin-top: -3px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform .2s
+}
+
+.nav-dropdown[open] > summary::after {
+    margin-top: 3px;
+    transform: rotate(225deg)
+}
+
+.nav-dropdown[open] > .nav-dropdown-menu {
+    animation: nav-dropdown-slide .22s ease-out both
+}
+
+@keyframes nav-dropdown-slide {
+    from {
+        opacity: 0;
+        transform: translate(calc(-50% + 12px), 0)
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0)
+    }
+}
+
+.nav-dropdown > summary:hover {
+    color: var(--ink)
+}
+
+@media (hover: hover) and (min-width: 901px) {
+    .nav-dropdown:hover > .nav-dropdown-menu,
+    .nav-dropdown:focus-within > .nav-dropdown-menu {
+        display: grid;
+        animation: nav-dropdown-slide .22s ease-out both
+    }
+
+    .nav-dropdown:hover > summary::after,
+    .nav-dropdown:focus-within > summary::after {
+        margin-top: 3px;
+        transform: rotate(225deg)
+    }
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 18px);
+    left: 50%;
+    z-index: 25;
+    display: grid;
+    min-width: max-content;
+    gap: 2px;
+    margin: 0;
+    padding: 10px;
+    border: 1px solid rgba(35, 31, 32, .1);
+    border-radius: 14px;
+    background: rgba(255, 252, 245, .98);
+    box-shadow: 0 14px 32px rgba(35, 31, 32, .12);
+    list-style: none;
+    transform: translateX(-50%)
+}
+
+.nav-dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -18px;
+    right: 0;
+    left: 0;
+    height: 18px
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 9px 12px;
+    border-radius: 8px;
+    color: #5A524A;
+    font-size: 13px;
+    white-space: nowrap;
+    transition: background-color .2s, color .2s
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a:focus-visible {
+    background: rgba(253, 185, 36, .16);
     color: var(--ink)
 }
 
@@ -173,6 +304,7 @@ h2 span {
 /* logo + mark slots (image shows when file exists, dashed space when not) */
 .logo-link {
     display: inline-flex;
+    flex: 0 0 auto;
     align-items: center
 }
 
@@ -189,18 +321,21 @@ h2 span {
 }
 
 .logo-slot--header {
-    width: 164px;
-    height: 36px;
-    justify-content: flex-start
+    --logo-clear-space: clamp(18px, 1.6vw, 24px);
+    width: max-content;
+    height: auto;
+    flex: 0 0 auto;
+    padding: var(--logo-clear-space);
+    justify-content: center
 }
 
 .logo-slot--header img {
     width: auto;
-    max-width: 164px;
-    height: auto;
-    max-height: 28px;
+    height: var(--logo-clear-space);
+    max-width: none;
+    max-height: none;
     object-fit: contain;
-    object-position: left center
+    object-position: center
 }
 
 .logo-slot--footer {
@@ -263,6 +398,19 @@ h2 span {
     align-items: stretch
 }
 
+.hero::before {
+    content: "";
+    position: absolute;
+    right: 3%;
+    bottom: 4%;
+    z-index: 0;
+    width: min(34vw, 440px);
+    aspect-ratio: 700 / 395;
+    background: url("/assets/w-mark.png") center / contain no-repeat;
+    opacity: .07;
+    pointer-events: none
+}
+
 .hero-glow {
     display: none
 }
@@ -272,6 +420,7 @@ h2 span {
     z-index: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     padding: 52px 0 56px;
     text-align: center
@@ -409,6 +558,11 @@ h2 span {
     z-index: 1
 }
 
+.intro > .container {
+    width: min(1120px, calc(100% - clamp(56px, 10vw, 160px)));
+    margin-inline: auto
+}
+
 .pathway-label {
     margin: 0 0 18px;
     color: #81776D;
@@ -527,6 +681,28 @@ h2 span {
     gap: clamp(56px, 8vw, 104px)
 }
 
+@media (min-width: 901px) and (max-width: 1300px) {
+    .intro-grid {
+        gap: clamp(28px, 4vw, 48px)
+    }
+
+    .intro-heading,
+    .intro-text {
+        min-width: 0
+    }
+
+    .intro-grid h2 {
+        max-width: 100%;
+        font-size: clamp(34px, 3.6vw, 46px);
+        letter-spacing: -1.5px;
+        text-wrap: balance
+    }
+
+    .intro-text .lead {
+        font-size: 20px
+    }
+}
+
 .approach-grid {
     grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
     gap: clamp(48px, 8vw, 96px)
@@ -538,6 +714,18 @@ h2 span {
 
 .intro .eyebrow {
     margin-top: 0
+}
+
+.intro-heading {
+    text-align: center
+}
+
+.intro-heading .eyebrow {
+    justify-content: center
+}
+
+.intro-heading h2 {
+    text-align: center
 }
 
 .intro-text {
@@ -922,6 +1110,84 @@ h2 span {
     font-size: 13px
 }
 
+.contact-dialog {
+    width: min(920px, calc(100% - 32px));
+    max-width: none;
+    max-height: min(92dvh, 900px);
+    padding: 0;
+    overflow: auto;
+    border: 0;
+    border-radius: 22px;
+    background: var(--gold);
+    color: var(--ink);
+    box-shadow: 0 24px 80px rgba(20, 18, 15, .28)
+}
+
+.contact-dialog::backdrop {
+    background: rgba(24, 21, 18, .64);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px)
+}
+
+.contact-dialog-panel {
+    position: relative;
+    padding: clamp(28px, 5vw, 56px)
+}
+
+.contact-dialog-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border: 1px solid rgba(35, 31, 32, .2);
+    border-radius: 50%;
+    background: rgba(255, 252, 245, .6);
+    color: var(--ink);
+    cursor: pointer
+}
+
+.contact-dialog-close span,
+.contact-dialog-close span::after {
+    display: block;
+    width: 16px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transform: rotate(45deg)
+}
+
+.contact-dialog-close span::after {
+    content: "";
+    transform: rotate(90deg)
+}
+
+.contact-dialog-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    align-items: start;
+    gap: clamp(28px, 5vw, 64px)
+}
+
+.contact-dialog .contact-copy h2 {
+    font-size: clamp(36px, 4.8vw, 56px)
+}
+
+.contact-dialog .contact-copy > p:not(.eyebrow) {
+    margin: 18px 0 24px
+}
+
+.contact-dialog .contact-form textarea {
+    min-height: 96px
+}
+
+.contact-dialog-open {
+    overflow: hidden
+}
+
 /* footer */
 .footer {
     background: var(--ink);
@@ -1147,7 +1413,20 @@ h2 span {
     }
 
     .nav-links.open {
-        display: flex
+        display: flex;
+        animation: mobile-nav-slide .24s ease-out both
+    }
+
+    @keyframes mobile-nav-slide {
+        from {
+            opacity: 0;
+            transform: translateX(16px)
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0)
+        }
     }
 
     .nav-contact {
@@ -1364,6 +1643,10 @@ h2 span {
         height: 64px
     }
 
+    .logo-slot--header {
+        --logo-clear-space: 18px
+    }
+
     .menu-toggle {
         display: grid;
         place-content: center;
@@ -1389,6 +1672,47 @@ h2 span {
         padding: 12px 10px
     }
 
+    .nav-dropdown > summary {
+        padding: 12px 10px
+    }
+
+    .nav-dropdown-menu {
+        position: static;
+        width: 100%;
+        min-width: 0;
+        padding: 0 0 8px 16px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        transform: none
+    }
+
+    .nav-dropdown-menu::before {
+        display: none
+    }
+
+    .nav-dropdown[open] > .nav-dropdown-menu {
+        animation: mobile-dropdown-slide .2s ease-out both
+    }
+
+    @keyframes mobile-dropdown-slide {
+        from {
+            opacity: 0;
+            transform: translateX(12px)
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0)
+        }
+    }
+
+    .nav-dropdown-menu a {
+        padding: 9px 10px;
+        white-space: normal
+    }
+
     .nav-contact {
         margin-top: 6px;
         padding: 13px 18px
@@ -1396,6 +1720,13 @@ h2 span {
 
     .hero {
         min-height: 0
+    }
+
+    .hero::before {
+        right: 3%;
+        bottom: 4%;
+        width: min(48vw, 360px);
+        opacity: .06
     }
 
     .hero-content {
@@ -1453,6 +1784,10 @@ h2 span {
     .intro .eyebrow {
         justify-content: flex-start;
         margin-bottom: 14px
+    }
+
+    .intro-heading .eyebrow {
+        justify-content: center
     }
 
     .intro-text,
@@ -1573,13 +1908,7 @@ h2 span {
     }
 
     .logo-slot--header {
-        width: 148px;
-        height: 30px
-    }
-
-    .logo-slot--header img {
-        max-width: 148px;
-        max-height: 24px
+        --logo-clear-space: 15px
     }
 
     .nav-links {
@@ -1588,6 +1917,13 @@ h2 span {
 
     .hero-content {
         padding: 40px 0 36px
+    }
+
+    .hero::before {
+        right: 3%;
+        bottom: 3%;
+        width: min(58vw, 240px);
+        opacity: .055
     }
 
     .hero .eyebrow {
@@ -1763,6 +2099,27 @@ h2 span {
         font-size: clamp(38px, 10vw, 52px)
     }
 
+    .contact-dialog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px
+    }
+
+    .contact-dialog-panel {
+        padding: 58px 22px 26px
+    }
+
+    .contact-dialog .contact-copy h2 {
+        font-size: 36px
+    }
+
+    .contact-dialog .contact-copy > p:not(.eyebrow) {
+        margin: 12px 0 14px
+    }
+
+    .contact-dialog .contact-copy .contact-phone {
+        margin-top: 4px
+    }
+
     .contact-form input,
     .contact-form select,
     .contact-form textarea {
@@ -1933,5 +2290,91 @@ h2 span {
     .cap-card:first-child,
     .cap-card:last-child {
         padding-inline: 36px
+    }
+}
+
+/* Shared text reveals and control feedback across the site */
+.reveal-on-scroll {
+    opacity: 0
+}
+
+.reveal-on-scroll.is-visible {
+    animation: content-rise-in .65s cubic-bezier(.2, .7, .2, 1) both;
+    animation-delay: var(--reveal-delay, 0ms)
+}
+
+@keyframes content-rise-in {
+    from {
+        opacity: 0;
+        transform: translateY(16px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+.button,
+.nav-contact {
+    transition: transform .22s ease, box-shadow .22s ease, background-color .22s ease
+}
+
+.button:hover,
+.nav-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(35, 31, 32, .16)
+}
+
+.button:active,
+.nav-contact:active {
+    transform: translateY(-1px) scale(.98)
+}
+
+.text-link,
+.card-link,
+.footer a,
+.nav-dropdown > summary {
+    transition: color .2s ease, transform .2s ease
+}
+
+.text-link:hover,
+.card-link:hover,
+.footer a:hover,
+.nav-dropdown > summary:hover {
+    transform: translateY(-2px)
+}
+
+.contact-dialog-close {
+    transition: transform .2s ease, background-color .2s ease
+}
+
+.contact-dialog-close:hover {
+    transform: rotate(90deg);
+    background: var(--cream)
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-header,
+    .nav-dropdown[open] > .nav-dropdown-menu,
+    .nav-links.open {
+        animation: none
+    }
+
+    .reveal-on-scroll,
+    .reveal-on-scroll.is-visible {
+        opacity: 1;
+        animation: none;
+        transform: none
+    }
+
+    .button:hover,
+    .nav-contact:hover,
+    .text-link:hover,
+    .card-link:hover,
+    .footer a:hover,
+    .nav-dropdown > summary:hover,
+    .contact-dialog-close:hover {
+        transform: none
     }
 }

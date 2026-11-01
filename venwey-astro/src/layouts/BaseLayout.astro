@@ -28,5 +28,8 @@ const { title, description, bodyClass } = Astro.props;
   </head>
   <body class={bodyClass}>
     <slot />
+    <script>
+      import "../scripts/main.ts";
+    </script>
   </body>
 </html>
