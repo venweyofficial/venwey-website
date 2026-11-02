@@ -846,18 +846,18 @@ h2 span {
     font-weight: 500
 }
 
-.cap-card h3 {
+.cap-card .capability-title {
+    margin: 0 0 18px;
     font-size: 38px;
     line-height: 1.05;
-    letter-spacing: -1.5px;
-    margin-bottom: 18px
+    letter-spacing: -1.5px
 }
 
-.cap-card h3 span {
+.cap-card .capability-title span {
     color: var(--gold)
 }
 
-.cap-card>p:not(.card-label) {
+.cap-card>p:not(.card-label):not(.capability-title) {
     font-size: 15px;
     line-height: 1.75;
     color: #CFC6BA
@@ -1483,6 +1483,7 @@ h2 span {
     font-size: 13px
 }
 
+.footer-column-heading,
 .footer-column h2 {
     margin: 0 0 6px;
     color: #B8AEA2;
@@ -2313,7 +2314,7 @@ h2 span {
         padding: 30px 0
     }
 
-    .cap-card h3 {
+    .cap-card .capability-title {
         font-size: 34px
     }
 
@@ -2490,8 +2491,8 @@ h2 span {
 }
 
 /* smooth text colour change */
-.cap-card h3,
-.cap-card h3 span,
+.cap-card .capability-title,
+.cap-card .capability-title span,
 .cap-card p,
 .cap-card ul,
 .cap-card .card-label,
