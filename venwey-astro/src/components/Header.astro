@@ -1,47 +1,170 @@
-﻿---
+
 ---
+---
+
 <header class="site-header" id="top">
+
   <nav class="nav container" aria-label="Main navigation">
-    <a class="logo-link" href="#top" aria-label="VENWEY home">
+
+    <!-- Brand Logo -->
+    <a class="logo-link" href="/" aria-label="Venwey homepage">
       <span class="logo-slot logo-slot--header">
-        <img src="/assets/logo.png" alt="" onerror="this.parentElement.classList.add('is-empty');this.remove()">
-        <em class="slot-label">Logo space<br><small>assets/logo.png</small></em>
+        <img
+          src="/assets/logo.png"
+          alt="Venwey logo"
+          onerror="this.parentElement.classList.add('is-empty');this.remove()"
+        >
+        <em class="slot-label">
+          Logo space<br>
+          <small>assets/logo.png</small>
+        </em>
       </span>
     </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
+
+    <!-- Mobile Navigation Toggle -->
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-controls="navLinks"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
+
+    <!-- Main Navigation -->
     <div class="nav-links" id="navLinks">
-      <a href="#about">About</a>
+
+      <a href="/about/">About Venwey</a>
+
+      <!-- BRAND -->
       <details class="nav-dropdown">
         <summary>Brand</summary>
+
         <ul class="nav-dropdown-menu">
-          <li><a href="#brand-building" data-service="Brand">Brand Building</a></li>
-          <li><a href="#logo-brand-design" data-service="Brand">Logo &amp; Brand Design</a></li>
-          <li><a href="#graphic-digital-design" data-service="Brand">Graphic &amp; digital design</a></li>
-          <li><a href="#creative-direction" data-service="Brand">Creative direction</a></li>
+
+          <li>
+            <a href="/services/brand/" data-service="Brand">
+              All Brand Services
+            </a>
+          </li>
+
+          <li>
+            <a href="/services/branding/" data-service="Brand">
+              Brand Strategy & Building
+            </a>
+          </li>
+
+          <li>
+            <a href="/services/visual-identity/" data-service="Brand">
+              Logo & Visual Identity Design
+            </a>
+          </li>
+
+          <li>
+            <a href="/services/graphic-design/" data-service="Brand">
+              Graphic & Digital Design
+            </a>
+          </li>
+
+          <li>
+            <a href="/services/creative-direction/" data-service="Brand">
+              Creative Direction
+            </a>
+          </li>
+
         </ul>
       </details>
+
+      <!-- LAB -->
       <details class="nav-dropdown">
         <summary>Lab</summary>
+
         <ul class="nav-dropdown-menu">
-          <li><a href="#web-app-development" data-service="Lab">Web &amp; app development</a></li>
-          <li><a href="#software-solutions" data-service="Lab">Software solutions</a></li>
-          <li><a href="#prototyping" data-service="Lab">Prototyping</a></li>
-          <li><a href="#technical-consulting" data-service="Lab">Technical consulting</a></li>
+
+          <li>
+            <a href="/services/lab/" data-service="Lab">
+              All Lab Services
+            </a>
+          </li>
+
+          <li>
+            <a href="/services/lab/web-app-development/" data-service="Lab">
+              Website & App Development
+            </a>
+          </li>
+
+          <li>
+            <a href="/services/lab/software-solutions/" data-service="Lab">
+              Custom Software Solutions
+            </a>
+          </li>
+
+          <li>
+            <a href="/services/lab/product-prototyping/" data-service="Lab">
+              Digital Product Prototyping
+            </a>
+          </li>
+
+          <li>
+            <a href="/services/lab/technical-consulting/" data-service="Lab">
+              Technical Consulting
+            </a>
+          </li>
+
         </ul>
       </details>
+
+      <!-- GROW -->
       <details class="nav-dropdown">
         <summary>Grow</summary>
+
         <ul class="nav-dropdown-menu">
-          <li><a href="#digital-marketing" data-service="Grow">Digital marketing</a></li>
-          <li><a href="#search-engine-optimisation" data-service="Grow">Search engine optimisation</a></li>
-          <li><a href="#content-strategy" data-service="Grow">Content strategy</a></li>
-          <li><a href="#growth-planning" data-service="Grow">Growth planning</a></li>
+
+          <li>
+            <a href="/services/grow/" data-service="Grow">
+              All Grow Services
+            </a>
+          </li>
+
+          <li>
+            <a href="/services/grow/digital-marketing/" data-service="Grow">
+              Digital Marketing
+            </a>
+          </li>
+
+          <li>
+            <a href="/services/grow/search-engine-optimisation/" data-service="Grow">
+              Search Engine Optimisation (SEO)
+            </a>
+          </li>
+
+          <li>
+            <a href="/services/grow/content-strategy/" data-service="Grow">
+              Content Strategy
+            </a>
+          </li>
+
+          <li>
+            <a href="/services/grow/growth-planning/" data-service="Grow">
+              Business Growth Planning
+            </a>
+          </li>
+
         </ul>
       </details>
-      <a href="#vision">Vision &amp; Mission</a>
-      <a href="#contact" class="nav-contact">Let's talk</a>
+
+      <a href="/about/vision-mission/">Vision &amp; Mission</a>
+
+      <a href="/contact/" class="nav-contact">
+        Let's talk
+      </a>
+
     </div>
+
   </nav>
+
 </header>

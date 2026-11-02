@@ -1,4 +1,4 @@
-# VENWEY website — Astro + TypeScript + Tailwind CSS
+# Venwey website — Astro + TypeScript + Tailwind CSS
 
 Port of the original static site (HTML/CSS/JS) to Astro. Markup, styles, assets and
 behaviour are carried over unchanged.

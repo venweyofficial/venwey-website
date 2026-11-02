@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Capabilities from "../../components/Capabilities.astro";
+import BrandServices from "../../components/BrandServices.astro";
+import LabServices from "../../components/LabServices.astro";
+import GrowServices from "../../components/GrowServices.astro";
+import Footer from "../../components/Footer.astro";
+import WhatsAppFloat from "../../components/WhatsAppFloat.astro";
+---
+
+<BaseLayout
+  title="Venwey Services | Brand, Lab and Grow"
+  description="Explore Venwey services across brand strategy and design, digital product development, and business growth."
+>
+  <Header />
+  <main id="main-content">
+    <section class="service-detail section-pad" aria-labelledby="services-title">
+      <div class="container service-detail-content">
+        <p class="eyebrow">How we help</p>
+        <h1 id="services-title">Services</h1>
+        <p class="service-detail-lead">
+          A connected set of services to shape your brand, build useful digital products, and support your next stage of growth.
+        </p>
+      </div>
+    </section>
+    <Capabilities />
+    <BrandServices />
+    <LabServices />
+    <GrowServices />
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+</BaseLayout>

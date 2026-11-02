@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import WhatsAppFloat from "../../components/WhatsAppFloat.astro";
+---
+
+<BaseLayout
+  title="About Venwey | Creative Branding and Design Agency"
+  description="Learn about Venwey, a creative branding and design agency connecting strategy, visual identity, graphic design, creative direction, and technical expertise."
+>
+  <Header />
+  <main>
+    <section class="about-page section-pad" aria-labelledby="about-title">
+      <div class="container about-page-content">
+        <p class="eyebrow">Who we are</p>
+        <h1 id="about-title">About Venwey</h1>
+        <h2>Built by engineers.<br><span>Driven by purpose.</span></h2>
+        <p class="about-page-lead">
+          Venwey is a creative branding and design agency helping businesses build distinctive identities through strategic thinking, creative design, and technical expertise.
+        </p>
+        <p>
+          We bring together branding, visual identity, graphic design, and creative direction to help businesses communicate their ideas effectively and establish a meaningful market presence. By combining engineering expertise with entrepreneurial thinking, we turn ambitious ideas into practical solutions and help ventures move forward with purpose.
+        </p>
+        <a class="underlined-link" href="/services/brand/">Explore our Brand services</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+</BaseLayout>

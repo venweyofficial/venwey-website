@@ -136,13 +136,15 @@ h2 span {
     height: 76px;
     display: flex;
     align-items: center;
-    justify-content: space-between
+    justify-content: space-between;
+    padding-inline: 16px
 }
 
 @media (min-width: 901px) {
     .site-header > .nav.container {
         width: 100%;
-        max-width: none
+        max-width: none;
+        padding-inline: clamp(20px, 3vw, 44px)
     }
 }
 
@@ -756,6 +758,10 @@ h2 span {
     padding-block: 88px
 }
 
+.capabilities:not(.service-family) {
+    margin-bottom: clamp(24px, 4vw, 48px)
+}
+
 .capabilities > .container {
     width: calc(100% - clamp(48px, 8vw, 128px));
     margin-left: clamp(24px, 3vw, 48px);
@@ -888,6 +894,258 @@ h2 span {
 
 .card-link span {
     color: var(--gold)
+}
+
+.brand-services .section-heading {
+    align-items: center
+}
+
+.brand-services .section-heading h2 {
+    font-size: clamp(34px, 4.2vw, 52px)
+}
+
+.brand-services .section-side-copy {
+    max-width: 420px
+}
+
+.service-family {
+    color: var(--ink)
+}
+
+.service-family::before {
+    bottom: 64px;
+    background: #fff
+}
+
+.lab-services::before {
+    right: 0;
+    left: clamp(28px, 5vw, 80px);
+    border-radius: 24px 0 0 24px;
+    background: var(--gold)
+}
+
+.lab-services::after {
+    right: auto;
+    left: 0
+}
+
+.service-family .section-side-copy {
+    color: var(--ink)
+}
+
+.service-family .eyebrow,
+.service-family .service-family-number {
+    color: var(--ink)
+}
+
+.lab-services .eyebrow,
+.lab-page .service-detail-content .eyebrow {
+    width: fit-content;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: var(--warm-ink);
+    color: var(--cream);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    line-height: 1.4;
+    text-transform: uppercase
+}
+
+.brand-services .section-heading .eyebrow,
+.grow-services .section-heading .eyebrow {
+    width: fit-content;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: var(--warm-ink);
+    color: var(--cream);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    line-height: 1.4;
+    text-transform: uppercase
+}
+
+.lab-services .section-side-copy,
+.lab-services .service-family-item {
+    text-align: left
+}
+
+.service-family > .container {
+    width: min(1120px, calc(100% - 48px));
+    margin-inline: auto
+}
+
+.service-family .section-heading {
+    display: flex;
+    align-items: center;
+    gap: clamp(28px, 5vw, 64px)
+}
+
+.service-family .section-heading > div,
+.service-family .section-side-copy {
+    flex: 1 1 0;
+    min-width: 0
+}
+
+.service-family .section-heading h2 {
+    max-width: 620px;
+    font-size: clamp(34px, 4.2vw, 52px)
+}
+
+.service-family .section-side-copy {
+    max-width: 520px;
+    margin: 0 0 6px;
+    text-align: left
+}
+
+.lab-services .section-heading .eyebrow {
+    justify-content: flex-start;
+    margin-bottom: 24px;
+    color: var(--cream)
+}
+
+.lab-services .service-family-item > p:not(.service-family-number) {
+    margin-inline: 0 auto
+}
+
+.service-family .service-family-item .underlined-link {
+    display: inline-block
+}
+
+.service-family-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(32px, 6vw, 80px)
+}
+
+.service-family-item {
+    min-width: 0;
+    padding: 28px 0 36px;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 100px
+}
+
+.service-family-number {
+    margin: 0 0 12px;
+    color: var(--amber);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em
+}
+
+.service-family-item h3 {
+    margin: 0 0 12px;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.15
+}
+
+.service-family-item > p:not(.service-family-number) {
+    max-width: 520px;
+    margin-bottom: 14px;
+    color: var(--warm-ink);
+    font-size: 15px
+}
+
+@media (max-width: 900px) {
+    .service-family .section-heading {
+        display: block
+    }
+
+    .service-family .section-side-copy {
+        margin: 20px 0 0
+    }
+
+}
+
+.about-page,
+.service-detail {
+    background: var(--paper)
+}
+
+.about-page-content {
+    max-width: 900px
+}
+
+.about-page-content .eyebrow {
+    justify-content: flex-start;
+    margin: 0 0 24px
+}
+
+.about-page h1,
+.service-detail h1,
+.contact-page-heading h1 {
+    margin: 0 0 24px;
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -.05em
+}
+
+.about-page h2 {
+    max-width: 720px;
+    margin: 32px 0 22px;
+    font-size: clamp(32px, 4.4vw, 48px);
+    line-height: 1.18
+}
+
+.about-page-lead,
+.service-detail-lead {
+    color: var(--ink);
+    font-family: var(--font-heading);
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.55
+}
+
+.about-page-content > p:not(.eyebrow),
+.service-detail-content > p:not(.eyebrow) {
+    max-width: 760px;
+    color: #5A524A
+}
+
+.about-page-content > p:not(.eyebrow) {
+    margin-bottom: 24px;
+    line-height: 1.85
+}
+
+.service-detail-content {
+    max-width: 900px
+}
+
+.service-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+    color: #756e68;
+    font-size: 14px;
+    line-height: 1.5
+}
+
+.service-detail-content > .eyebrow {
+    justify-content: flex-start;
+    margin: 0 0 20px
+}
+
+.service-detail-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px 28px;
+    margin-top: 32px
+}
+
+.contact-page-heading {
+    padding: 64px 0 0;
+    background: var(--gold)
+}
+
+.contact-page-heading + .contact {
+    padding-top: 48px
+}
+
+.contact-page-heading h1 {
+    margin-bottom: 0
 }
 
 /* vision / mission */
@@ -1225,7 +1483,7 @@ h2 span {
     font-size: 13px
 }
 
-.footer-column h3 {
+.footer-column h2 {
     margin: 0 0 6px;
     color: #B8AEA2;
     font-family: var(--font-body);
@@ -1824,6 +2082,10 @@ h2 span {
         grid-template-columns: 1fr
     }
 
+    .service-family-grid {
+        grid-template-columns: 1fr
+    }
+
     .cap-card,
     .cap-card:first-child,
     .cap-card:last-child {
@@ -2376,5 +2638,127 @@ h2 span {
     .nav-dropdown > summary:hover,
     .contact-dialog-close:hover {
         transform: none
+    }
+}
+
+/* Lab panel alignment and compact mobile spacing */
+@media (min-width: 900px) and (max-width: 1400px) {
+    .service-family.lab-services > .container {
+        width: min(1120px, calc(100% - clamp(48px, 10vw, 160px)));
+        margin-inline: auto
+    }
+}
+
+@media (max-width: 900px) {
+    .lab-page .service-detail.section-pad {
+        padding-block: 52px
+    }
+
+    .lab-services.section-pad {
+        padding-block: 44px
+    }
+
+    .lab-services .section-heading {
+        margin-bottom: 26px
+    }
+
+    .lab-services .service-family-item {
+        padding-block: 24px
+    }
+}
+
+@media (max-width: 560px) {
+    .lab-page .service-detail.section-pad {
+        padding-block: 40px
+    }
+
+    .lab-services.section-pad {
+        padding-block: 36px
+    }
+
+    .lab-services::before {
+        bottom: 28px
+    }
+
+    .lab-services .section-heading {
+        margin-bottom: 20px
+    }
+
+    .lab-services .section-side-copy {
+        margin-top: 14px
+    }
+
+    .lab-services .service-family-item {
+        padding-block: 20px
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1120px) {
+    .nav {
+        position: relative;
+        height: 68px
+    }
+
+    .menu-toggle {
+        display: grid;
+        place-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 8px
+    }
+
+    .nav-links {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        left: auto;
+        display: none;
+        width: min(420px, calc(100vw - 48px));
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 12px;
+        border: 1px solid rgba(35, 31, 32, .1);
+        border-radius: 14px;
+        background: rgba(255, 252, 245, .98);
+        box-shadow: 0 14px 32px rgba(35, 31, 32, .12);
+        backdrop-filter: blur(16px)
+    }
+
+    .nav-links.open {
+        display: flex;
+        animation: mobile-nav-slide .24s ease-out both
+    }
+
+    .nav-links a:not(.nav-contact),
+    .nav-dropdown > summary {
+        padding: 12px 10px
+    }
+
+    .nav-dropdown-menu {
+        position: static;
+        width: 100%;
+        min-width: 0;
+        padding: 0 0 8px 16px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        transform: none
+    }
+
+    .nav-dropdown-menu::before {
+        display: none
+    }
+
+    .nav-dropdown-menu a {
+        white-space: normal
+    }
+
+    .nav-contact {
+        margin-top: 6px;
+        text-align: center
     }
 }

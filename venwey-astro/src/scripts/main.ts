@@ -1,4 +1,4 @@
-﻿const menuToggle = document.getElementById("menuToggle") as HTMLButtonElement | null;
+const menuToggle = document.getElementById("menuToggle") as HTMLButtonElement | null;
 const navLinks = document.getElementById("navLinks");
 
 if (menuToggle && navLinks) {
@@ -65,7 +65,7 @@ document.querySelectorAll<HTMLFormElement>(".contact-form").forEach((contactForm
     if (!form.reportValidity()) return;
 
     const data = new FormData(form);
-    const subject = encodeURIComponent(`VENWEY website enquiry - ${data.get("service")}`);
+    const subject = encodeURIComponent(`Venwey website enquiry - ${data.get("service")}`);
     const body = encodeURIComponent(
       `Name: ${data.get("name")}\nEmail: ${data.get("email")}\nService: ${data.get("service")}\n\nProject details:\n${data.get("message")}`
     );
