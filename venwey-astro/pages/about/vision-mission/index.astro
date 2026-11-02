@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Header from "../../../components/Header.astro";
+import Vision from "../../../components/Vision.astro";
+import Approach from "../../../components/Approach.astro";
+import Footer from "../../../components/Footer.astro";
+import WhatsAppFloat from "../../../components/WhatsAppFloat.astro";
+---
+
+<BaseLayout
+  title="Vision & Mission | Venwey"
+  description="Learn about Venwey’s vision, mission, philosophy, and approach to helping ventures move forward."
+>
+  <Header />
+  <main id="main-content">
+    <section class="service-detail section-pad" aria-labelledby="vision-page-title">
+      <div class="container service-detail-content">
+        <p class="eyebrow">Our purpose</p>
+        <h1 id="vision-page-title">Vision &amp; Mission</h1>
+        <p class="service-detail-lead">
+          The direction and principles that guide how Venwey helps ventures move forward.
+        </p>
+      </div>
+    </section>
+    <Vision />
+    <Approach />
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+</BaseLayout>

@@ -2259,17 +2259,52 @@ h2 span {
         padding-block: 56px
     }
 
-    .intro::before,
-    .capabilities::after {
-        width: 16px
+    .intro::before {
+        width: 28px
     }
 
     .intro::after {
-        left: 16px
+        left: 28px
     }
 
-    .capabilities::before {
-        right: 16px
+    .capabilities::before,
+    .capabilities::after {
+        display: none
+    }
+
+    .capabilities:not(.service-family)::before {
+        display: block;
+        right: 28px;
+    }
+
+    .service-family::before {
+        display: block;
+        left: 28px;
+        right: 0;
+        border-radius: 24px 0 0 24px;
+    }
+
+    .service-family::after {
+        display: none;
+    }
+
+    .service-family.lab-services::before {
+        left: 28px;
+        right: 0;
+    }
+
+    .service-family.brand-services::before,
+    .service-family.grow-services::before {
+        left: 0;
+        right: 28px;
+        border-radius: 0 24px 24px 0;
+    }
+
+    .intro > .container,
+    .capabilities > .container,
+    .service-family > .container {
+        width: calc(100% - 56px);
+        margin-inline: auto;
     }
 
     .intro-grid,
@@ -2279,6 +2314,28 @@ h2 span {
 
     .intro .eyebrow {
         margin-bottom: 22px
+    }
+
+    .intro-heading {
+        padding: 0 0 22px 20px;
+        text-align: left
+    }
+
+    .intro-heading .eyebrow,
+    .intro-heading h2 {
+        text-align: left;
+        justify-content: flex-start
+    }
+
+    .intro-heading h2 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .intro-text {
+        margin-left: 20px;
+        margin-right: 0;
+        text-align: left;
     }
 
     .intro-grid h2,
@@ -2297,7 +2354,8 @@ h2 span {
     .intro-text > p:not(.lead) {
         margin-bottom: 22px;
         font-size: 15px;
-        line-height: 1.85
+        line-height: 1.85;
+        margin-left: 8px
     }
 
     .capabilities .section-heading {
@@ -2788,5 +2846,412 @@ h2 span {
     .nav-contact {
         margin-top: 6px;
         text-align: center
+    }
+}
+
+/* Responsive alignment and alternating panel-edge correction */
+@media (max-width: 900px) {
+    .intro > .container,
+    .capabilities:not(.service-family) > .container,
+    .service-family > .container {
+        width: min(100% - 64px, 720px);
+        margin-inline: auto;
+    }
+
+    .capabilities:not(.service-family) {
+        overflow: hidden;
+    }
+
+    /* Keep one intentional cream gutter; alternate the coloured panel edge. */
+    .capabilities.service-family::after {
+        content: none;
+        display: none;
+    }
+
+    .capabilities.service-family::before {
+        display: block;
+        top: 0;
+        bottom: 0;
+        width: auto;
+        z-index: 0;
+    }
+
+    .capabilities.service-family.brand-services::before,
+    .capabilities.service-family.grow-services::before {
+        left: 0;
+        right: 24px;
+        border-radius: 0 20px 20px 0;
+    }
+
+    .capabilities.service-family.lab-services::before {
+        left: 24px;
+        right: 0;
+        border-radius: 20px 0 0 20px;
+    }
+
+    .service-family > .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .service-family .section-heading {
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .service-family-grid {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+        gap: 0;
+    }
+
+    .service-family-item {
+        width: 100%;
+        min-width: 0;
+        padding-inline: 0;
+    }
+
+    .service-family-item > p:not(.service-family-number) {
+        max-width: 100%;
+    }
+
+    .capability-grid {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+        /* Keep clear vertical breathing room between Brand, Lab and Grow cards. */
+        row-gap: clamp(24px, 4vw, 36px);
+    }
+
+    .cap-card,
+    .cap-card:first-child,
+    .cap-card:last-child {
+        width: 100%;
+        min-width: 0;
+        padding-inline: 0;
+        border-right: 0;
+    }
+
+    .cap-card:last-child {
+        border-bottom: 0;
+    }
+
+    .approach-grid,
+    .intro-grid,
+    .contact-grid {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .intro > .container,
+    .capabilities:not(.service-family) > .container,
+    .service-family > .container {
+        width: calc(100% - 48px);
+        max-width: none;
+    }
+
+    .capabilities.service-family.brand-services::before,
+    .capabilities.service-family.grow-services::before {
+        right: 18px;
+    }
+
+    .capabilities.service-family.lab-services::before {
+        left: 18px;
+    }
+
+    .service-family .section-heading {
+        display: block;
+    }
+
+    .service-family .section-side-copy {
+        max-width: 100%;
+        margin: 16px 0 0;
+    }
+
+    .service-family-item {
+        padding-block: 22px;
+    }
+
+    .service-family-item h3 {
+        overflow-wrap: anywhere;
+    }
+
+    .cap-card {
+        overflow-wrap: anywhere;
+    }
+
+    .cap-card ul {
+        padding-inline: 0;
+    }
+
+    .approach-list article {
+        grid-template-columns: 30px minmax(0, 1fr);
+    }
+}
+
+/* Compact hero spacing for medium desktop / mobile-desktop viewports */
+@media (min-width: 901px) and (max-width: 1400px) {
+    .hero {
+        min-height: auto;
+        align-items: center;
+    }
+
+    .hero-content {
+        justify-content: center;
+        padding-block: clamp(30px, 5vh, 58px);
+    }
+
+    .hero-pathway:empty {
+        display: none;
+        margin: 0;
+    }
+
+    .hero .eyebrow {
+        margin-bottom: clamp(14px, 2vh, 20px);
+    }
+
+    .hero h1 {
+        margin-bottom: clamp(16px, 2.5vh, 24px);
+        font-size: clamp(46px, 5.6vw, 72px);
+        line-height: 1.12;
+    }
+
+    .hero-copy p {
+        font-size: clamp(16px, 1.35vw, 18px);
+        line-height: 1.6;
+    }
+
+    .hero-actions {
+        margin-top: clamp(22px, 3vh, 30px);
+    }
+}
+
+/* Explicit stacked spacing for the Brand / Lab / Grow capability cards.
+   Kept separate from the service-family panels and applies to tablet and mobile widths. */
+@media (max-width: 1400px) {
+    #capabilities .capability-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: clamp(36px, 5vw, 52px);
+        overflow: visible;
+    }
+
+    #capabilities .cap-card,
+    #capabilities .cap-card:first-child,
+    #capabilities .cap-card:last-child {
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 30px 0 34px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 246, 228, .24);
+    }
+
+    #capabilities .cap-card:last-child {
+        border-bottom: 0;
+    }
+}
+
+
+/* ==========================================================================
+   Responsive panel system (tablet + mobile, <= 900px)
+   One source of truth for the left / right / left stacked panels so the
+   alternating edge stays visible on small screens, content always sits
+   inside its panel with equal padding, and panels never touch vertically.
+   Desktop (> 900px) is untouched. Content and markup are unchanged.
+   ========================================================================== */
+@media (max-width: 900px) {
+    :root {
+        --panel-gutter: 42px;   /* cream strip left open on the free side */
+        --panel-pad: 26px;      /* breathing room between panel edge and text */
+        --panel-gap: 32px;      /* vertical gap between stacked panels */
+    }
+
+    /* panels + vertical rhythm */
+    .intro,
+    .capabilities,
+    .capabilities.service-family {
+        margin-bottom: var(--panel-gap);
+    }
+
+    .capabilities.section-pad,
+    .capabilities.service-family.section-pad,
+    .lab-services.section-pad {
+        padding-block: 48px;
+    }
+
+    .intro::before,
+    .intro::after,
+    .capabilities::before,
+    .capabilities::after {
+        top: 0;
+        bottom: 0;
+    }
+
+    /* intro: panel hangs from the right, gutter on the left */
+    .intro::before {
+        display: block;
+        left: 0;
+        width: var(--panel-gutter);
+    }
+
+    .intro::after {
+        left: var(--panel-gutter);
+        right: 0;
+        bottom: 0;
+    }
+
+    /* dark capabilities + Brand + Grow: panel hangs from the left */
+    .capabilities:not(.service-family)::before,
+    .capabilities.service-family.brand-services::before,
+    .capabilities.service-family.grow-services::before {
+        left: 0;
+        right: var(--panel-gutter);
+        width: auto;
+        border-radius: 0 24px 24px 0;
+    }
+
+    .capabilities:not(.service-family)::after {
+        right: 0;
+        width: var(--panel-gutter);
+    }
+
+    /* Lab: panel hangs from the right */
+    .capabilities.service-family.lab-services::before {
+        left: var(--panel-gutter);
+        right: 0;
+        width: auto;
+        border-radius: 24px 0 0 24px;
+    }
+
+    /* content boxes: equal padding inside the panel, on every page */
+    .intro > .container,
+    .capabilities:not(.service-family) > .container,
+    .capabilities.service-family > .container {
+        width: auto;
+        max-width: none;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: var(--panel-pad);
+        margin-right: calc(var(--panel-gutter) + var(--panel-pad));
+    }
+
+    .intro > .container,
+    .capabilities.service-family.lab-services > .container {
+        margin-left: calc(var(--panel-gutter) + var(--panel-pad));
+        margin-right: var(--panel-pad);
+    }
+
+    /* lab had its own tablet offsets; remove them so text matches the others */
+    .lab-services .section-heading,
+    .lab-services .service-family-grid {
+        padding-left: 0;
+    }
+
+    /* text never pokes out of its panel */
+    .capabilities .section-side-copy,
+    .capabilities .section-heading,
+    .service-family-item > p:not(.service-family-number),
+    .cap-card > p {
+        max-width: 100%;
+    }
+
+    .capabilities .section-heading h2,
+    .cap-card .capability-title,
+    .service-family-item h3 {
+        overflow-wrap: break-word;
+        hyphens: manual;
+    }
+
+    /* the card footer links keep their arrow inside the panel */
+    #capabilities .card-link {
+        gap: 12px;
+        align-items: center;
+    }
+
+    #capabilities .card-link span {
+        flex: 0 0 auto;
+    }
+
+    /* intro text column: both paragraphs share one left edge */
+    .intro .intro-grid,
+    .intro .intro-grid > * {
+        min-width: 0;
+    }
+
+    .intro .intro-grid p {
+        padding-left: 0;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    :root {
+        --panel-gutter: 24px;
+        --panel-pad: 22px;
+        --panel-gap: 24px;
+    }
+
+    .capabilities.section-pad,
+    .capabilities.service-family.section-pad,
+    .lab-services.section-pad {
+        padding-block: 40px;
+    }
+
+    .capabilities:not(.service-family)::before,
+    .capabilities.service-family.brand-services::before,
+    .capabilities.service-family.grow-services::before {
+        border-radius: 0 20px 20px 0;
+    }
+
+    .capabilities.service-family.lab-services::before {
+        border-radius: 20px 0 0 20px;
+    }
+
+    .intro::after {
+        border-radius: 20px 0 0 20px;
+    }
+}
+
+/* Intro + last-card polish inside the stacked panels (<= 900px) */
+@media (max-width: 900px) {
+    .intro-heading {
+        padding-left: 0;
+        text-align: left;
+    }
+
+    .intro-text {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .intro-heading .eyebrow {
+        justify-content: flex-start;
+    }
+
+    /* last card in the dark panel: don't double up bottom spacing */
+    #capabilities .cap-card:last-child {
+        padding-bottom: 0;
+    }
+}
+
+/* Eyebrow labels follow the left edge of the heading beneath them (<= 900px).
+   The hero keeps its centred composition. */
+@media (max-width: 900px) {
+    main > section:not(.hero) .eyebrow,
+    .contact-dialog .eyebrow {
+        justify-content: flex-start;
+        text-align: left;
+    }
+}
+
+@media (max-width: 900px) {
+    .intro .intro-heading h2,
+    .intro .intro-heading .eyebrow {
+        text-align: left;
+        margin-left: 0;
+        margin-right: 0;
     }
 }

@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Contact from "../../components/Contact.astro";
+import Footer from "../../components/Footer.astro";
+import WhatsAppFloat from "../../components/WhatsAppFloat.astro";
+---
+
+<BaseLayout
+  title="Contact Venwey | Start a Project"
+  description="Contact Venwey to discuss branding, visual identity, graphic design, creative direction, technology, or growth."
+>
+  <Header />
+  <main>
+    <section class="contact-page-heading">
+      <div class="container">
+        <p class="eyebrow">Get in touch</p>
+        <h1>Contact Venwey</h1>
+      </div>
+    </section>
+    <Contact showPopup={false} />
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+</BaseLayout>

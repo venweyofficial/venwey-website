@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Capabilities from "../components/Capabilities.astro";
+import BrandServices from "../components/BrandServices.astro";
+import LabServices from "../components/LabServices.astro";
+import GrowServices from "../components/GrowServices.astro";
+import Vision from "../components/Vision.astro";
+import Approach from "../components/Approach.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
+---
+
+<BaseLayout
+  title="Venwey | Branding, Digital Products & Business Growth"
+  description="Venwey offers branding, visual identity, graphic design, creative direction, web and app development, software solutions, digital marketing, and growth planning."
+>
+  <Header />
+  <main>
+    <Hero />
+    <About />
+    <Capabilities />
+    <BrandServices />
+    <LabServices />
+    <GrowServices />
+    <Vision />
+    <Approach />
+    <Contact />
+  </main>
+  <Footer />
+  <WhatsAppFloat />
+</BaseLayout>
